@@ -1,0 +1,10 @@
+services:
+  api:
+    image: python:3.8
+    ports:
+      - "8000:8000"
+    volumes:
+      - "./api/:/app"
+      - "./api/venv/:/app/venv/"
+    entrypoint: "make"
+    command: ["-C", "/app", "build", "run-reload"]
